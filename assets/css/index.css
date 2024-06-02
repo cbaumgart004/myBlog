@@ -1,0 +1,109 @@
+
+/*TODO: style toggle switch modeled on the sliding toggle seen in Module 04-11*/
+
+h1 {
+    background-color: #1d1e22 ;
+    color: #9461fd;
+}
+.nav {
+    text-align: right;
+    margin-right: 10%;
+}
+
+.blogContainer {
+    display: flex;
+    
+}
+#blogForm {
+    display: flex;
+    
+    flex-direction: column;
+    width: 50%;
+    background-color: darkgray;
+} 
+#blogText {
+    width: 90%;
+    height: 200px;
+}
+.icon {
+    width: 50%;
+}
+
+/*hide the checkbox*/
+#themeToggle {
+    opacity: 0;
+    width: 0;
+    height:0;
+}
+/*style the toggle switch*/
+.formGroup {
+    display:flex;
+
+    width: 90%;
+}
+.col {
+    margin-left: 10px;
+    margin-right: 10px;
+    
+
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch {
+    /*set its position relative so absolute position of slider anchors it*/
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    transition: .4s;
+    /*for older browsers and for safari*/
+    -webkit-transition: .4s;
+}
+
+.slider:before {
+    position:absolute;
+    /*setting blank content is how the button actually shows*/
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: blue;
+}
+
+input:focus + .slider {
+    box-shadow: 1px blue;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round:before {
+    border-radius: 50px;
+}
