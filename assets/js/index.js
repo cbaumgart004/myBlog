@@ -2,7 +2,8 @@
 const title = document.getElementById('blogTitle');
 const text = document.getElementById('blogText');
 const submit = document.getElementById('submitButton');
-const toggle = document.getElementById('themeToggle')
+const toggle = document.getElementById('themeToggle');
+const container = document.querySelector('.container');
 //TODO: Save all form data as object using JSON.stringify
 //TODO: Use local storage to capture text from blogID to store on blog.html page
 
@@ -61,17 +62,23 @@ let theme = localStorage.getItem('theme') || 'dark';
 if (theme === 'dark') {
     
     toggle.checked = true;
-    
+    container.setAttribute('class', 'dark');
+} else {
+    container.setAttribute('class', 'light');
 };
 };
 
 toggle.addEventListener ('click', function() {
     if (this.checked) {
         theme = 'dark'
+        //set Class of container element to Dark to style via CSS accordingly
+        container.setAttribute('class', 'dark');
         localStorage.setItem('theme', theme);
+
         
     } else {
         theme = 'light';
+        container.setAttribute('class', 'light');
         localStorage.setItem('theme', theme);
         
         
